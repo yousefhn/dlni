@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:example/aboutus.dart';
 import 'package:example/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'hsaab.dart';
 
@@ -14,6 +15,14 @@ class SearchBarDemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('ar', 'AR'), // English, no country code
+        ],
         debugShowCheckedModeBanner: false,
         title: 'Search Bar Demo',
         theme: new ThemeData(primarySwatch: Colors.blue),
@@ -248,10 +257,6 @@ class _SearchBarDemoHomeState extends State<SearchBarDemoHome> {
             onPressed: () => _showAction(context, 1),
             icon: const Icon(Icons.share_location_sharp),
           ),
-          // ActionButton(
-          //   onPressed: () => _showAction(context, 2),
-          //   icon: const Icon(Icons.videocam),
-          // ),
         ],
       ),
     );
@@ -286,7 +291,7 @@ class _ExpandableFabState extends State<ExpandableFab>
     super.initState();
     _open = widget.initialOpen ?? false;
     _controller = AnimationController(
-      value: _open ? 1.0 : 0.0,
+      value: _open ? 1.0 : .0,
       duration: const Duration(milliseconds: 250),
       vsync: this,
     );
@@ -318,7 +323,7 @@ class _ExpandableFabState extends State<ExpandableFab>
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Stack(
-        alignment: Alignment.bottomRight,
+        alignment: Alignment.bottomLeft,
         clipBehavior: Clip.none,
         children: [
           _buildTapToCloseFab(),
@@ -386,7 +391,7 @@ class _ExpandableFabState extends State<ExpandableFab>
         curve: const Interval(0.0, 0.5, curve: Curves.easeOut),
         child: AnimatedOpacity(
           opacity: _open ? 0.0 : 1.0,
-          curve: const Interval(0.25, 1.0, curve: Curves.easeInOut),
+          curve: const Interval(0.2, 1.0, curve: Curves.easeInOut),
           duration: const Duration(milliseconds: 250),
           child: FloatingActionButton(
             backgroundColor: Color(0xff6885e3),
@@ -424,7 +429,7 @@ class _ExpandingActionButton extends StatelessWidget {
           progress.value * maxDistance,
         );
         return Positioned(
-          right: 4.0 + offset.dx,
+          left: 4.0 + offset.dx,
           bottom: 4.0 + offset.dy,
           child: Transform.rotate(
             angle: (1.0 - progress.value) * math.pi / 2,
@@ -465,28 +470,6 @@ class ActionButton extends StatelessWidget {
           onPressed: onPressed,
           icon: icon,
         ),
-      ),
-    );
-  }
-}
-
-@immutable
-class FakeItem extends StatelessWidget {
-  const FakeItem({
-    Key? key,
-    required this.isBig,
-  }) : super(key: key);
-
-  final bool isBig;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
-      height: isBig ? 128.0 : 36.0,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-        color: Colors.grey.shade300,
       ),
     );
   }

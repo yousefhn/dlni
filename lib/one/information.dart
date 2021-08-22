@@ -145,8 +145,10 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
           padding: EdgeInsets.all(0),
           child: IconButton(
             padding: EdgeInsets.all(0),
-            alignment: Alignment.centerRight,
-            icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
+            alignment: Alignment.center,
+            icon: (_isFavorited
+                ? Icon(Icons.favorite_outlined)
+                : Icon(Icons.favorite_outline)),
             color: Colors.white,
             onPressed: _toggleFavorite,
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'aboutus.dart';
+
 class Hs extends StatefulWidget {
   const Hs({Key? key}) : super(key: key);
 
@@ -12,8 +14,11 @@ class _HsState extends State<Hs> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/5.jpg'), fit: BoxFit.cover),
+        gradient: LinearGradient(
+            colors: [Color(0xff6885e3), Color(0xffffffff)],
+            end: Alignment.bottomCenter,
+            begin: Alignment.topCenter,
+            stops: [0.3, 1.2]),
       ),
       child: Container(
         child: SafeArea(
@@ -25,51 +30,84 @@ class _HsState extends State<Hs> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 250,
-                      height: 245,
+                      width: 200,
+                      height: 200,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('assets/images/3.png'),
                               fit: BoxFit.fill)),
                     ),
-                    Container(
-                      child: Text(
-                        'اتصل بنا',
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [Color(0xff6885e3), Color(0xffffffff)],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              stops: [0, 0.5]),
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white.withOpacity(0.4),
                         ),
+                        margin: EdgeInsets.all(0),
+                        child: ListTile(
+                            onTap: () {},
+                            leading: Icon(
+                              Icons.info_outline,
+                              color: Color(0xff6885e3),
+                            ),
+                            title: Text(
+                              "من نحن",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AboutUsPage()));
+                              },
+                              icon: Icon(
+                                Icons.navigate_next_outlined,
+                                color: Color(0xff6885e3),
+                                size: 30,
+                              ),
+                            )),
                       ),
-                      color: Colors.transparent,
                     ),
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
-                        color: Colors.white.withOpacity(0.4),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [Color(0xff6885e3), Color(0xffffffff)],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              stops: [0, 0.5]),
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white.withOpacity(0.4),
+                        ),
+                        margin: EdgeInsets.all(0),
                         child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "jxnhckjjznx",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              Spacer(),
-                              Text(
-                                "kjbshb",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.web_sharp,
-                                color: Color(0xff6885e3),
-                              )
-                            ],
+                          padding: EdgeInsets.all(0),
+                          child: ListTile(
+                            onTap: () {},
+                            leading: Icon(
+                              Icons.web_sharp,
+                              color: Color(0xff6885e3),
+                            ),
+                            title: Text(
+                              "jxnhckjjznx",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                            trailing: Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xff6885e3),
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -77,30 +115,34 @@ class _HsState extends State<Hs> {
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
-                        color: Colors.white.withOpacity(0.4),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [Color(0xff6885e3), Color(0xffffffff)],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              stops: [0, 0.5]),
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white.withOpacity(0.4),
+                        ),
+                        margin: EdgeInsets.all(0),
                         child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "jxnhckjjznx",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              Spacer(),
-                              Text(
-                                "kjbshb",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.web_sharp,
-                                color: Color(0xff6885e3),
-                              )
-                            ],
+                          padding: EdgeInsets.all(0),
+                          child: ListTile(
+                            onTap: () {},
+                            leading: Icon(
+                              Icons.web_sharp,
+                              color: Color(0xff6885e3),
+                            ),
+                            title: Text(
+                              "jxnhckjjznx",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                            trailing: Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xff6885e3),
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -108,61 +150,34 @@ class _HsState extends State<Hs> {
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
-                        color: Colors.white.withOpacity(0.4),
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "jxnhckjjznx",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              Spacer(),
-                              Text(
-                                "kjbshb",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.web_sharp,
-                                color: Color(0xff6885e3),
-                              )
-                            ],
-                          ),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [Color(0xff6885e3), Color(0xffffffff)],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              stops: [0, 0.5]),
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white.withOpacity(0.4),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Container(
-                        color: Colors.white.withOpacity(0.4),
+                        margin: EdgeInsets.all(0),
                         child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "jxnhckjjznx",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              Spacer(),
-                              Text(
-                                "kjbshb",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.web_sharp,
-                                color: Color(0xff6885e3),
-                              )
-                            ],
+                          padding: EdgeInsets.all(0),
+                          child: ListTile(
+                            onTap: () {},
+                            leading: Icon(
+                              Icons.web_sharp,
+                              color: Color(0xff6885e3),
+                            ),
+                            title: Text(
+                              "jxnhckjjznx",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                            trailing: Icon(
+                              Icons.navigate_next_outlined,
+                              color: Color(0xff6885e3),
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),

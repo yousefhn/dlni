@@ -18,10 +18,10 @@ class _AboutUsPageState extends State<AboutUsPage> {
       child: Container(
         child: SafeArea(
           child: Scaffold(
-              backgroundColor: Colors.transparent,
-              body: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            backgroundColor: Colors.transparent,
+            body: ListView(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
@@ -31,9 +31,6 @@ class _AboutUsPageState extends State<AboutUsPage> {
                           image: DecorationImage(
                               image: AssetImage('assets/images/3.png'),
                               fit: BoxFit.fill)),
-                    ),
-                    SizedBox(
-                      height: 100,
                     ),
                     Container(
                       child: Text(
@@ -46,8 +43,36 @@ class _AboutUsPageState extends State<AboutUsPage> {
                       ),
                       color: Colors.transparent,
                     ),
-                    SizedBox(
-                      height: 100,
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                        color: Colors.white.withOpacity(0.4),
+                        child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            children: [
+                              Text(
+                                "jxnhckjjznx",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
+                              Spacer(),
+                              Text(
+                                "kjbshb",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.web_sharp,
+                                color: Color(0xff6885e3),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(20),
@@ -80,9 +105,6 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 100,
-                    ),
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
@@ -114,9 +136,6 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 100,
-                    ),
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
@@ -147,47 +166,12 @@ class _AboutUsPageState extends State<AboutUsPage> {
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 100,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Container(
-                        color: Colors.white.withOpacity(0.4),
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "jxnhckjjznx",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              Spacer(),
-                              Text(
-                                "kjbshb",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.web_sharp,
-                                color: Color(0xff6885e3),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 100,
                     ),
                   ],
                 ),
-              )),
+              ],
+            ),
+          ),
         ),
       ),
     );

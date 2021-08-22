@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'one/information.dart';
+
 class LocationPage extends StatefulWidget {
   const LocationPage({Key? key}) : super(key: key);
 
@@ -8,6 +10,7 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
+  bool _isFavorited = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,21 +32,65 @@ class _LocationPageState extends State<LocationPage> {
           backgroundColor: Colors.transparent,
         ),
         body: ListView.builder(
-          itemCount: 1,
+          itemCount: 50,
           itemBuilder: (context, index) {
-            return Container(
-              child: Card(
-                color: Colors.transparent,
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Text('fldkbd'),
+            return Padding(
+              padding: EdgeInsets.all(20),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xff6885e3), Color(0xffffffff)],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      stops: [0, 0.5]),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white.withOpacity(0.4),
                 ),
+                margin: EdgeInsets.all(0),
+                child: ListTile(
+                    onTap: () {},
+                    leading: IconButton(
+                      padding: EdgeInsets.all(0),
+                      alignment: Alignment.centerRight,
+                      icon: (_isFavorited == true
+                          ? Icon(Icons.favorite_outlined)
+                          : Icon(Icons.favorite_outline)),
+                      color: Color(0xff6885e3),
+                      onPressed: _toggleFavorite,
+                    ),
+                    title: Text(
+                      "من نحن",
+                      style: TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => first()));
+                      },
+                      icon: Icon(
+                        Icons.navigate_next_outlined,
+                        color: Color(0xff6885e3),
+                        size: 30,
+                      ),
+                    )),
               ),
             );
           },
         ),
       ),
     );
+  }
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _isFavorited = false;
+      } else {
+        _isFavorited = true;
+      }
+    });
   }
 }
 
